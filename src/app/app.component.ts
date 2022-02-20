@@ -56,10 +56,12 @@ fromFiglioEvntHandlr( evntData: { cardID: number , status:string , path:string, 
                 this.cards[evntData.cardID].check = true
                 s.check = true
               }else if(s.check == false){
-                s.status = 'default'
-                s.path = './assets/default.png'
-                this.cards[evntData.cardID].path='./assets/default.png'
-                this.cards[evntData.cardID].status ='default'
+                setTimeout(()=>{
+                  s.status = 'default'
+                  s.path = './assets/default.png'
+                  this.cards[evntData.cardID].path='./assets/default.png'
+                  this.cards[evntData.cardID].status ='default'
+                },1000)
               }
             }
           }
@@ -76,9 +78,5 @@ fromFiglioEvntHandlr( evntData: { cardID: number , status:string , path:string, 
     if (this.win){
       alert("Bravo hai vinto");
     }
-  }
-  sleep(s){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + (s*1000)){ /* non faccio niente */ } 
   }
 }
